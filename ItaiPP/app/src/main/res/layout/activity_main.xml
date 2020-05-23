@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="#EEEEEE"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/view_input" android:id="@+id/highInput" />
+            <include layout="@layout/view_input" android:id="@+id/lowInput" />
+            <include layout="@layout/view_input" android:id="@+id/closeInput" />
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/view_output" android:id="@+id/r3Output" />
+            <include layout="@layout/view_output" android:id="@+id/r2Output" />
+            <include layout="@layout/view_output" android:id="@+id/r1Output" />
+            <include layout="@layout/view_output" android:id="@+id/s1Output" />
+            <include layout="@layout/view_output" android:id="@+id/s2Output" />
+            <include layout="@layout/view_output" android:id="@+id/s3Output" />
+
+            <include layout="@layout/view_output" android:id="@+id/deltaOutput" />
+            <include layout="@layout/view_output" android:id="@+id/rangeOutput" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="#EEEEEE"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:onClick="calc"
+                android:layout_marginEnd="8dp"
+                android:text="calculate"
+                android:id="@+id/calcButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="clear"
+                android:text="clear"
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD"/>
+
+    </LinearLayout>
+
+</ScrollView>
