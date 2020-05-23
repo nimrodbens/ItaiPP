@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_input.view.*
 import kotlinx.android.synthetic.main.view_input.view.titleTextView
@@ -13,9 +14,12 @@ import java.util.logging.XMLFormatter
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var editTexts: ArrayList<EditText>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        editTexts = arrayListOf(highInput.editText, lowInput.editText, closeInput.editText)
         setupViews()
         showKeyboard()
     }
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         lowInput.editText.imeOptions = EditorInfo.IME_ACTION_NEXT
         closeInput.editText.imeOptions = EditorInfo.IME_ACTION_DONE
         //
+        pipoOutput.titleTextView.text = "PIPO"
         r3Output.titleTextView.text = "R1"
         r2Output.titleTextView.text = "R2"
         r1Output.titleTextView.text = "R1"
@@ -54,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             val delta = h - l
             val range = delta - x
             //
+            pipoOutput.dataTextView.text = x.toString()
             r3Output.dataTextView.text = r3.toString()
             r2Output.dataTextView.text = r2.toString()
             r1Output.dataTextView.text = r1.toString()
@@ -62,14 +68,15 @@ class MainActivity : AppCompatActivity() {
             s3Output.dataTextView.text = s3.toString()
             deltaOutput.dataTextView.text = delta.toString()
             rangeOutput.dataTextView.text = range.toString()
+            //
+            editTexts.forEach { it.clearFocus() }
         } catch (ignored: NumberFormatException) { }
 
     }
     fun clear(view: View) {
-        highInput.editText.setText("")
-        lowInput.editText.setText("")
-        closeInput.editText.setText("")
+        editTexts.forEach { it.setText("") }
         //
+        pipoOutput.dataTextView.text = "-"
         r3Output.dataTextView.text = "-"
         r2Output.dataTextView.text = "-"
         r1Output.dataTextView.text = "-"
