@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
             val s1 = 2*x - l
             val s2 = x + (h-l)
             val s3 = x + 2*(h-l)
-            val delta = 0
-            val range = 0
+            val delta = h - l
+            val range = delta - x
             //
             r3Output.dataTextView.text = r3.toString()
             r2Output.dataTextView.text = r2.toString()
