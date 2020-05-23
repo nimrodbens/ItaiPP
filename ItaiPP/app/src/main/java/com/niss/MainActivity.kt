@@ -38,6 +38,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calc(view: View) {
+        try {
+            val h = highInput.editText.text.toString().toFloat()
+            val l = lowInput.editText.text.toString().toFloat()
+            val c = closeInput.editText.text.toString().toFloat()
+            //
+            val r3 = 0
+            val r2 = 0
+            val r1 = 0
+            val s1 = 0
+            val s2 = 0
+            val s3 = 0
+            val delta = 0
+            val range = 0
+            //
+            r3Output.dataTextView.text = r3.toString()
+            r2Output.dataTextView.text = r2.toString()
+            r1Output.dataTextView.text = r1.toString()
+            s1Output.dataTextView.text = s1.toString()
+            s2Output.dataTextView.text = s2.toString()
+            s3Output.dataTextView.text = s3.toString()
+            deltaOutput.dataTextView.text = delta.toString()
+            rangeOutput.dataTextView.text = range.toString()
+        } catch (ignored: NumberFormatException) { }
 
     }
     fun clear(view: View) {
