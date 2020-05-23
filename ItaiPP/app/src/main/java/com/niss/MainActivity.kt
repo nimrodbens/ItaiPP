@@ -1,5 +1,7 @@
 package com.niss
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,12 +18,15 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var editTexts: ArrayList<EditText>
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         editTexts = arrayListOf(highInput.editText, lowInput.editText, closeInput.editText)
         setupViews()
         showKeyboard()
+        //
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     fun setupViews() {
