@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_input.view.*
 import kotlinx.android.synthetic.main.view_input.view.titleTextView
 import kotlinx.android.synthetic.main.view_output.view.*
+import java.util.logging.XMLFormatter
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,13 +43,14 @@ class MainActivity : AppCompatActivity() {
             val h = highInput.editText.text.toString().toFloat()
             val l = lowInput.editText.text.toString().toFloat()
             val c = closeInput.editText.text.toString().toFloat()
+            val x  = (h + l + c) / 3
             //
-            val r3 = 0
-            val r2 = 0
-            val r1 = 0
-            val s1 = 0
-            val s2 = 0
-            val s3 = 0
+            val r3 = x - 2*(h-l)
+            val r2 = x - (h-l)
+            val r1 = 2*x - h
+            val s1 = 2*x - l
+            val s2 = x + (h-l)
+            val s3 = x + 2*(h-l)
             val delta = 0
             val range = 0
             //
