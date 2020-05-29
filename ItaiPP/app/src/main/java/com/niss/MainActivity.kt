@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -36,9 +37,15 @@ class MainActivity : AppCompatActivity() {
         highInput.editText.imeOptions = EditorInfo.IME_ACTION_NEXT
         lowInput.editText.imeOptions = EditorInfo.IME_ACTION_NEXT
         closeInput.editText.imeOptions = EditorInfo.IME_ACTION_DONE
+        closeInput.editText.setOnEditorActionListener { textView, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                calc(textView)
+            }
+            return@setOnEditorActionListener false
+        }
         //
         pipoOutput.titleTextView.text = "PIPO"
-        r3Output.titleTextView.text = "R1"
+        r3Output.titleTextView.text = "R3"
         r2Output.titleTextView.text = "R2"
         r1Output.titleTextView.text = "R1"
         s1Output.titleTextView.text = "S1"
@@ -55,12 +62,12 @@ class MainActivity : AppCompatActivity() {
             val c = closeInput.editText.text.toString().toFloat()
             val x  = (h + l + c) / 3
             //
-            val r3 = x - 2*(h-l)
-            val r2 = x - (h-l)
-            val r1 = 2*x - h
-            val s1 = 2*x - l
-            val s2 = x + (h-l)
-            val s3 = x + 2*(h-l)
+            val r3 = x + 2*(h-l)
+            val r2 = x + (h-l)
+            val r1 = 2*x - l
+            val s1 = 2*x - h
+            val s2 = x - (h-l)
+            val s3 = x - 2*(h-l)
             val delta = h - l
             val range = delta - x
             //
